@@ -1,0 +1,47 @@
+<%- include("./partials/header.ejs") %> 
+<form class="box">
+    <div class="field">
+        <label class="label" for="wineName">Wine Name</label>
+        <div class="control">
+            <input class="input" type="text" placeholder="e.g. wine name" name="wineName" id="wineName">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="color">Color</label>
+        <div class="control">
+            <input class="input" type="text" placeholder="e.g. red" name="color" id="color">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="years">Years</label>
+        <div class="control">
+            <input class="input" type="number" placeholder="e.g. 2007" name="years" id="years">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="img">Image URL</label>
+        <div class="control">
+            <input class="input" type="text" placeholder="e.g. https://www......" name="img" id="img">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="price">Price</label>
+        <div class="control">
+            <input class="input" type="number" placeholder="e.g. 100" name="price" id="price">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="desc">description</label>
+        <div class="control">
+            <textarea class="textarea" placeholder="e.g. description"></textarea>
+        </div>
+    </div>
+
+    <button class="button is-primary">Create</button>
+</form>
+<%- include("./partials/footer.ejs") %> 

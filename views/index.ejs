@@ -1,0 +1,20 @@
+<%- include("./partials/header.ejs") %> 
+
+    <div class="columns">
+        <% for (let i in wines) { %>
+            <div class="column is-one-fifth">
+                <a href="/find-wine/<%= wines[i].id %> ">
+                    <figure class="image is-square">
+                        <img src="<%= wines[i].img %> ">
+                    </figure>
+                    <p class="indexP"> <%= wines[i].wineName %> </p>
+                    <p class="indexP"> $<%= wines[i].price %> </p>
+                </a>
+            </div>
+        <% } %> 
+    </div>
+
+
+
+
+<%- include("./partials/footer.ejs") %> 
