@@ -122,6 +122,7 @@ router.get("/:id/edit", (req,res) => {
     })
 })
 
+// update
 router.put("/:id", (req,res) => {
     Wine.findByIdAndUpdate(req.params.id, req.body, (err,wine) => {
         if(err) res.send(err)
