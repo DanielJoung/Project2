@@ -116,7 +116,7 @@ router.delete("/:id", (req,res) => {
 router.get("/:id/edit", (req,res) => {
     Wine.findById(req.params.id, (err, wine) => {
         if(err) res.send(err)
-        req.render("edit.ejs", {
+        res.render("edit.ejs", {
             wine: wine
         })
     })
