@@ -5,7 +5,7 @@ const methodOverride = require("method-override")
 const session = require("express-session")
 const mongoose = require("mongoose")
 require("dotenv").config()
-const PORT = process.env.PORT
+const PORT = process.env.PORT 
 const mongoURI = process.env.MONGODB_URI
 const SESSION_SECRET = process.env.SESSION_SECRET
 

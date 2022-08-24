@@ -18,7 +18,7 @@
     <div class="columns" id="scrollBar">
         <% for (let i in wines) { %>
             <div class="column is-one-fifth" id="scrollMenu">
-                <a href="/find-wine/<%= wines[i].id %> ">
+                <a href="/find-wine/<%= wines[i].id %> " id="wineList">
                     <figure class="image is-square">
                         <img src="<%= wines[i].img %> " class="img">
                     </figure>

@@ -1,9 +1,19 @@
 * {
-    margin: 0 auto;
+    margin: 0;
 }
 
 .signin {
     text-align: right;
+}
+
+#mainName {
+    text-align: center;
+    color: black;
+    font-size: 25px;
+}
+
+#wineList {
+    color: black;
 }
 
 #scrollBar {
