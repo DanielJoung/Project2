@@ -1,5 +1,19 @@
 <%- include("./partials/header.ejs") %>
- 
+    <div class="columns">
+        <div class="column">
+            <a href="/find-wine/findPrice25 " class="button">Less Than $25</a>
+        </div>
+        <div class="column">
+            <a href="/find-wine/findPrice50" class="button">Less Than $50</a>
+        </div>
+        <div class="column">
+            <a href="/find-wine/findPrice100" class="button">Less Than $100</a>
+        </div>
+        <div class="column">
+            <a href="/find-wine/findPriceMore100" class="button">More Than $100</a>
+        </div>
+
+    </div>
 
     <div class="columns" id="scrollBar">
         <% for (let i in wines) { %>

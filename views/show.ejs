@@ -20,28 +20,27 @@
       </div>
     </article>
   </div>
+  
+  <!-- edit delete button -->
   <div class="columns">
-    <div class="column">
-      <form action="/find-wine/<%= wine.id %>/edit">
-        <button class="button is-success">
-          <span class="icon is-small">
-            <i class="fas fa-check"></i>
-          </span>
-          <span>Edit</span>
-        </button>
-      </form>
-    </div>
-    <div class="column">
-      <form action="/find-wine/<%= wine.id %>?_method=DELETE" method="POST">
-        <button class="button is-danger is-outlined">
-          <span>Delete</span>
-          <span class="icon is-small">
-            <i class="fas fa-times"></i>
-          </span>
-        </button>    
-      </form>
-    </div>
+    <form action="/find-wine/<%= wine.id %>/edit">
+      <button class="button is-success">
+        <span class="icon is-small">
+          <i class="fas fa-check"></i>
+        </span>
+        <span>Edit</span>
+      </button>
+    </form>
+    <form action="/find-wine/<%= wine.id %>?_method=DELETE" method="POST">
+      <button class="button is-danger is-outlined">
+        <span>Delete</span>
+        <span class="icon is-small">
+          <i class="fas fa-times"></i>
+        </span>
+      </button>    
+    </form>
   </div>
+
 
 
 

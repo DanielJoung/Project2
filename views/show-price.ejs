@@ -1,0 +1,92 @@
+<%- include("./partials/header.ejs") %> 
+
+    <% for(let i in wine) { %>
+        <% if (wine[i].price <= 25) {%>
+            <div class="box">
+                <article class="media">
+                    <div class="media-left">
+                    <figure class="image is-128x128">
+                        <img src="<%= wine[i].img %> " alt="Image">
+                    </figure>
+                    </div>
+                <div class="media-content">
+                    <div class="content">
+                        <p>
+                            <strong><%=wine[i].wineName%> </strong> <small><%=wine[i].years%>       </small>
+                            <span class="showPrice">$<%= wine[i].price %>  </span>
+                            <br>
+                        </p>
+                      <p><strong>Wine Note</strong></p>
+                      <%= wine[i].desc %> 
+                    </div>
+                  </div>
+                </article>
+              </div>
+        <% } else if (wine[i].price <= 50){ %>
+            <div class="box">
+                <article class="media">
+                    <div class="media-left">
+                    <figure class="image is-128x128">
+                        <img src="<%= wine[i].img %> " alt="Image">
+                    </figure>
+                    </div>
+                <div class="media-content">
+                    <div class="content">
+                        <p>
+                            <strong><%=wine[i].wineName%> </strong> <small><%=wine[i].years%>       </small>
+                            <span class="showPrice">$<%= wine[i].price %>  </span>
+                            <br>
+                        </p>
+                      <p><strong>Wine Note</strong></p>
+                      <%= wine[i].desc %> 
+                    </div>
+                  </div>
+                </article>
+              </div>
+        <% } else if (wine[i].price <= 100){ %>
+            <div class="box">
+                <article class="media">
+                    <div class="media-left">
+                    <figure class="image is-128x128">
+                        <img src="<%= wine[i].img %> " alt="Image">
+                    </figure>
+                    </div>
+                <div class="media-content">
+                    <div class="content">
+                        <p>
+                            <strong><%=wine[i].wineName%> </strong> <small><%=wine[i].years%>       </small>
+                            <span class="showPrice">$<%= wine[i].price %>  </span>
+                            <br>
+                        </p>
+                        <p><strong>Wine Note</strong></p>
+                        <%= wine[i].desc %> 
+                    </div>
+                    </div>
+                </article>
+                </div>
+        <% } else if (wine[i].price >= 100){ %>
+            <div class="box">
+                <article class="media">
+                    <div class="media-left">
+                    <figure class="image is-128x128">
+                        <img src="<%= wine[i].img %> " alt="Image">
+                    </figure>
+                    </div>
+                <div class="media-content">
+                    <div class="content">
+                        <p>
+                            <strong><%=wine[i].wineName%> </strong> <small><%=wine[i].years%>       </small>
+                            <span class="showPrice">$<%= wine[i].price %>  </span>
+                            <br>
+                        </p>
+                        <p><strong>Wine Note</strong></p>
+                        <%= wine[i].desc %> 
+                    </div>
+                    </div>
+                </article>
+                </div>
+        <% } %> 
+<% } %> 
+
+
+<%- include("./partials/footer.ejs") %> 

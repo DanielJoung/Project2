@@ -88,6 +88,32 @@ router.get("/new", (req,res) => {
     res.render("new.ejs")
 })
 
+// show price 
+router.get("/findPrice25", async(req,res) => {
+    const wine = await Wine.find({price:{$lte:25}})
+    res.render("show-price.ejs", {
+        wine:wine
+    })
+})
+router.get("/findPrice50", async(req,res) => {
+    const wine = await Wine.find({price:{$lte:50}})
+    res.render("show-price.ejs", {
+        wine:wine
+    })
+})
+router.get("/findPrice100", async(req,res) => {
+    const wine = await Wine.find({price:{$lte:100}})
+    res.render("show-price.ejs", {
+        wine:wine
+    })
+})
+router.get("/findPriceMore100", async(req,res) => {
+    const wine = await Wine.find({price:{$gte:100}})
+    res.render("show-price.ejs", {
+        wine:wine
+    })
+})
+
 // show
 router.get("/:id", async(req,res) => {
     const wine = await Wine.findById(req.params.id)
@@ -95,6 +121,7 @@ router.get("/:id", async(req,res) => {
         wine
     })
 })
+
 
 // create 
 router.post("/", (req,res) => {
