@@ -1,51 +1,53 @@
 <%- include("./partials/header.ejs") %> 
-
-<form class="box" action="/find-wine/<%= wine.id %>?_method=PUT" method="POST">
-    <div class="field">
-        <label class="label" for="wineName">Wine Name</label>
-        <div class="control">
-            <input class="input" type="text" value="<%= wine.wineName %> " name="wineName" id="wineName">
+<nav class="body">
+    <form class="box" action="/find-wine/<%= wine.id %>?_method=PUT" method="POST">
+        <div class="field">
+            <label class="label" for="wineName">Wine Name</label>
+            <div class="control">
+                <input class="input" type="text" value="<%= wine.wineName %> " name="wineName" id="wineName">
+            </div>
         </div>
-    </div>
-
-    <div class="field">
-        <label class="label" for="color">Color</label>
-        <div class="control">
-            <input class="input" type="text" value="<%= wine.color %>" name="color" id="color">
+    
+        <div class="field">
+            <label class="label" for="color">Color</label>
+            <div class="control">
+                <input class="input" type="text" value="<%= wine.color %>" name="color" id="color">
+            </div>
         </div>
-    </div>
-
-    <div class="field">
-        <label class="label" for="years">Years</label>
-        <div class="control">
-            <input class="input" type="number" value="<%= wine.years %>" name="years" id="years">
+    
+        <div class="field">
+            <label class="label" for="years">Years</label>
+            <div class="control">
+                <input class="input" type="number" value="<%= wine.years %>" name="years" id="years">
+            </div>
         </div>
-    </div>
-
-    <div class="field">
-        <label class="label" for="img">Image URL</label>
-        <div class="control">
-            <input class="input" type="text" value="<%= wine.img %>" name="img" id="img">
+    
+        <div class="field">
+            <label class="label" for="img">Image URL</label>
+            <div class="control">
+                <input class="input" type="text" value="<%= wine.img %>" name="img" id="img">
+            </div>
         </div>
-    </div>
-
-    <div class="field">
-        <label class="label" for="price">Price</label>
-        <div class="control">
-            <input class="input" type="number" value="<%= wine.price %>" name="price" id="price">
+    
+        <div class="field">
+            <label class="label" for="price">Price</label>
+            <div class="control">
+                <input class="input" type="number" value="<%= wine.price %>" name="price" id="price">
+            </div>
         </div>
-    </div>
-
-    <div class="field">
-        <label class="label" for="desc">description</label>
-        <div class="control">
-            <textarea class="textarea" name="desc" id="desc">
-                <%= wine.desc %>
-            </textarea>
+    
+        <div class="field">
+            <label class="label" for="desc">description</label>
+            <div class="control">
+                <textarea class="textarea" name="desc" id="desc">
+                    <%= wine.desc %>
+                </textarea>
+            </div>
         </div>
-    </div>
+    
+        <button class="button is-primary">Change</button>
+    </form>
+</nav>
 
-    <button class="button is-primary">Change</button>
-</form>
 
 <%- include("./partials/footer.ejs") %> 

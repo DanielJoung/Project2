@@ -1,5 +1,5 @@
 <%- include("./partials/header.ejs") %> 
-
+<nav class="body">
     <% for(let i in wine) { %>
         <% if (wine[i].price <= 25) {%>
             <div class="box">
@@ -15,6 +15,9 @@
                             <strong><%=wine[i].wineName%> </strong> <small><%=wine[i].years%>       </small>
                             <span class="showPrice">$<%= wine[i].price %>  </span>
                             <br>
+                        </p>
+                        <p>
+                            <strong>Color :</strong>  <%= wine[i].color %> 
                         </p>
                       <p><strong>Wine Note</strong></p>
                       <%= wine[i].desc %> 
@@ -37,6 +40,9 @@
                             <span class="showPrice">$<%= wine[i].price %>  </span>
                             <br>
                         </p>
+                        <p>
+                            <strong>Color :</strong>  <%= wine[i].color %> 
+                        </p>
                       <p><strong>Wine Note</strong></p>
                       <%= wine[i].desc %> 
                     </div>
@@ -57,6 +63,9 @@
                             <strong><%=wine[i].wineName%> </strong> <small><%=wine[i].years%>       </small>
                             <span class="showPrice">$<%= wine[i].price %>  </span>
                             <br>
+                        </p>
+                        <p>
+                            <strong>Color :</strong>  <%= wine[i].color %> 
                         </p>
                         <p><strong>Wine Note</strong></p>
                         <%= wine[i].desc %> 
@@ -79,6 +88,9 @@
                             <span class="showPrice">$<%= wine[i].price %>  </span>
                             <br>
                         </p>
+                        <p>
+                            <strong>Color :</strong>  <%= wine[i].color %> 
+                        </p>
                         <p><strong>Wine Note</strong></p>
                         <%= wine[i].desc %> 
                     </div>
@@ -86,7 +98,58 @@
                 </article>
                 </div>
         <% } %> 
+        <% if (wine[i].color === "red") {%>
+            <div class="box">
+                <article class="media">
+                    <div class="media-left">
+                    <figure class="image is-128x128">
+                        <img src="<%= wine[i].img %> " alt="Image">
+                    </figure>
+                    </div>
+                <div class="media-content">
+                    <div class="content">
+                        <p>
+                            <strong><%=wine[i].wineName%> </strong> <small><%=wine[i].years%>       </small>
+                            <span class="showPrice">$<%= wine[i].price %>  </span>
+                            <br>
+                        </p>
+                        <p>
+                            <strong>Color :</strong>  <%= wine[i].color %> 
+                        </p>
+                      <p><strong>Wine Note</strong></p>
+                      <%= wine[i].desc %> 
+                    </div>
+                  </div>
+                </article>
+              </div>
+        <% } else if (wine[i].color === "white") { %>
+            <div class="box">
+                <article class="media">
+                    <div class="media-left">
+                    <figure class="image is-128x128">
+                        <img src="<%= wine[i].img %> " alt="Image">
+                    </figure>
+                    </div>
+                <div class="media-content">
+                    <div class="content">
+                        <p>
+                            <strong><%=wine[i].wineName%> </strong> <small><%=wine[i].years%>       </small>
+                            <span class="showPrice">$<%= wine[i].price %>  </span>
+                            <br>
+                        </p>
+                        <p>
+                            <strong>Color :</strong>  <%= wine[i].color %> 
+                        </p>
+                      <p><strong>Wine Note</strong></p>
+                      <%= wine[i].desc %> 
+                    </div>
+                  </div>
+                </article>
+              </div>
+        <% } %> 
 <% } %> 
+</nav>
+    
 
 
 <%- include("./partials/footer.ejs") %> 

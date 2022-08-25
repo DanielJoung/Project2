@@ -1,48 +1,48 @@
 <%- include("./partials/header.ejs") %> 
-
-<div class="box">
-    <article class="media">
-      <div class="media-left">
-        <figure class="image is-128x128">
-          <img src="<%= wine.img %> " alt="Image">
-        </figure>
-      </div>
-      <div class="media-content">
-        <div class="content">
-          <p>
-            <strong><%=wine.wineName%> </strong> <small><%=wine.years%>       </small>
-            <span class="showPrice">$<%= wine.price %>  </span>
-            <br>
-          </p>
-          <p><strong>Wine Note</strong></p>
-          <%= wine.desc %> 
+<nav class="body">
+  <div class="box">
+      <article class="media">
+        <div class="media-left">
+          <figure class="image is-128x128">
+            <img src="<%= wine.img %> " alt="Image">
+          </figure>
         </div>
-      </div>
-    </article>
-  </div>
-  
-  <!-- edit delete button -->
-  <div class="columns">
-    <form action="/find-wine/<%= wine.id %>/edit">
-      <button class="button is-success">
-        <span class="icon is-small">
-          <i class="fas fa-check"></i>
-        </span>
-        <span>Edit</span>
-      </button>
-    </form>
-    <form action="/find-wine/<%= wine.id %>?_method=DELETE" method="POST">
-      <button class="button is-danger is-outlined">
-        <span>Delete</span>
-        <span class="icon is-small">
-          <i class="fas fa-times"></i>
-        </span>
-      </button>    
-    </form>
-  </div>
-
-
-
-
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong><%=wine.wineName%> </strong> <small><%=wine.years%>       </small>
+              <span class="showPrice">$<%= wine.price %>  </span>
+              <br>
+            </p>
+            <p>
+             <strong>Color :</strong>  <%= wine.color %> 
+            </p>
+            <p><strong>Wine Note</strong></p>
+            <%= wine.desc %> 
+          </div>
+        </div>
+      </article>
+    </div>
+    
+    <!-- edit delete button -->
+    <div class="columns">
+      <form action="/find-wine/<%= wine.id %>/edit">
+        <button class="button is-success">
+          <span class="icon is-small">
+            <i class="fas fa-check"></i>
+          </span>
+          <span>Edit</span>
+        </button>
+      </form>
+      <form action="/find-wine/<%= wine.id %>?_method=DELETE" method="POST">
+        <button class="button is-danger is-outlined">
+          <span>Delete</span>
+          <span class="icon is-small">
+            <i class="fas fa-times"></i>
+          </span>
+        </button>    
+      </form>
+    </div>
+</nav>
 
 <%- include("./partials/footer.ejs") %> 

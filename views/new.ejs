@@ -1,47 +1,50 @@
 <%- include("./partials/header.ejs") %> 
-<form class="box" action="/find-wine" method="POST">
-    <div class="field">
-        <label class="label" for="wineName">Wine Name</label>
-        <div class="control">
-            <input class="input" type="text" placeholder="e.g. wine name" name="wineName" id="wineName">
-        </div>
-    </div>
+<nav class="body">
 
-    <div class="field">
-        <label class="label" for="color">Color</label>
-        <div class="control">
-            <input class="input" type="text" placeholder="e.g. red" name="color" id="color">
+    <form class="box" action="/find-wine" method="POST">
+        <div class="field">
+            <label class="label" for="wineName">Wine Name</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="e.g. wine name" name="wineName" id="wineName">
+            </div>
         </div>
-    </div>
-
-    <div class="field">
-        <label class="label" for="years">Years</label>
-        <div class="control">
-            <input class="input" type="number" placeholder="e.g. 2007" name="years" id="years">
+    
+        <div class="field">
+            <label class="label" for="color">Color</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="e.g. red" name="color" id="color">
+            </div>
         </div>
-    </div>
-
-    <div class="field">
-        <label class="label" for="img">Image URL</label>
-        <div class="control">
-            <input class="input" type="text" placeholder="e.g. https://www......" name="img" id="img">
+    
+        <div class="field">
+            <label class="label" for="years">Years</label>
+            <div class="control">
+                <input class="input" type="number" placeholder="e.g. 2007" name="years" id="years">
+            </div>
         </div>
-    </div>
-
-    <div class="field">
-        <label class="label" for="price">Price</label>
-        <div class="control">
-            <input class="input" type="number" placeholder="e.g. 100" name="price" id="price">
+    
+        <div class="field">
+            <label class="label" for="img">Image URL</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="e.g. https://www......" name="img" id="img">
+            </div>
         </div>
-    </div>
-
-    <div class="field">
-        <label class="label" for="desc">description</label>
-        <div class="control">
-            <textarea class="textarea" placeholder="e.g. description" name="desc" id="desc"></textarea>
+    
+        <div class="field">
+            <label class="label" for="price">Price</label>
+            <div class="control">
+                <input class="input" type="number" placeholder="e.g. 100" name="price" id="price">
+            </div>
         </div>
-    </div>
-
-    <button class="button is-primary">Create</button>
-</form>
+    
+        <div class="field">
+            <label class="label" for="desc">description</label>
+            <div class="control">
+                <textarea class="textarea" placeholder="e.g. description" name="desc" id="desc"></textarea>
+            </div>
+        </div>
+    
+        <button class="button is-primary">Create</button>
+    </form>
+</nav>
 <%- include("./partials/footer.ejs") %> 

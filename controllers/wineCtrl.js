@@ -2,6 +2,15 @@ const express = require('express');
 const router = express.Router()
 const Wine = require('../models/wines.js')
 
+const authRequired = (req,res,next) => {
+    if(req.session.currentUser) {
+        next()
+    }else {
+        res.send("You must be logged in first")
+    }
+}
+
+
 // index
 router.get("/", async (req,res) => {
     const wines = await Wine.find({})
@@ -114,6 +123,21 @@ router.get("/findPriceMore100", async(req,res) => {
     })
 })
 
+router.get("/findColorRed", async(req,res) => {
+    const wine = await Wine.find({color:"red"})
+    res.render("show-price.ejs", {
+        wine:wine
+    })
+})
+
+router.get("/findColorWhite", async(req,res) => {
+    const wine = await Wine.find({color:"white"})
+    res.render("show-price.ejs", {
+        wine:wine
+    })
+})
+
+
 // show
 router.get("/:id", async(req,res) => {
     const wine = await Wine.findById(req.params.id)
@@ -140,7 +164,7 @@ router.delete("/:id", (req,res) => {
 })
 
 // edit 
-router.get("/:id/edit", (req,res) => {
+router.get("/:id/edit", authRequired, (req,res) => {
     Wine.findById(req.params.id, (err, wine) => {
         if(err) res.send(err)
         res.render("edit.ejs", {
