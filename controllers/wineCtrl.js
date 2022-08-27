@@ -10,11 +10,13 @@ const authRequired = (req,res,next) => {
     }
 }
 
-
 // index
 router.get("/", async (req,res) => {
     const wines = await Wine.find({})
-    res.render("index.ejs", {wines})
+    res.render("index.ejs", {
+        wines,
+        user:req.session.currentUser
+    })
 })
 
 // seed
@@ -94,46 +96,55 @@ router.get("/seed", (req,res) => {
 
 // new
 router.get("/new", (req,res) => {
-    res.render("new.ejs")
+    res.render("new.ejs", {
+        user:req.session.currentUser
+    })
 })
 
 // show price 
 router.get("/findPrice25", async(req,res) => {
     const wine = await Wine.find({price:{$lte:25}})
     res.render("show-price.ejs", {
-        wine:wine
+        wine:wine,
+        user:req.session.currentUser
     })
 })
 router.get("/findPrice50", async(req,res) => {
     const wine = await Wine.find({price:{$lte:50}})
     res.render("show-price.ejs", {
-        wine:wine
+        wine:wine,
+        user:req.session.currentUser
     })
 })
 router.get("/findPrice100", async(req,res) => {
     const wine = await Wine.find({price:{$lte:100}})
     res.render("show-price.ejs", {
-        wine:wine
+        wine:wine,
+        user:req.session.currentUser
     })
 })
 router.get("/findPriceMore100", async(req,res) => {
     const wine = await Wine.find({price:{$gte:100}})
     res.render("show-price.ejs", {
-        wine:wine
+        wine:wine,
+        user:req.session.currentUser
     })
 })
 
+// show color
 router.get("/findColorRed", async(req,res) => {
     const wine = await Wine.find({color:"red"})
-    res.render("show-price.ejs", {
-        wine:wine
+    res.render("show-color.ejs", {
+        wine:wine,
+        user:req.session.currentUser
     })
 })
 
 router.get("/findColorWhite", async(req,res) => {
     const wine = await Wine.find({color:"white"})
-    res.render("show-price.ejs", {
-        wine:wine
+    res.render("show-color.ejs", {
+        wine:wine,
+        user:req.session.currentUser
     })
 })
 
@@ -142,7 +153,8 @@ router.get("/findColorWhite", async(req,res) => {
 router.get("/:id", async(req,res) => {
     const wine = await Wine.findById(req.params.id)
     res.render("show.ejs", {
-        wine
+        wine,
+        user:req.session.currentUser
     })
 })
 
@@ -151,12 +163,12 @@ router.get("/:id", async(req,res) => {
 router.post("/", (req,res) => {
     Wine.create(req.body, (err,createWine) => {
         if(err) res.send(err)
-        res.redirect("/find-wine")
+        res.redirect("/find-wine", {user:req.session.currentUser})
     })
 })
 
 // delete
-router.delete("/:id", (req,res) => {
+router.delete("/:id", authRequired,(req,res) => {
     Wine.findByIdAndDelete(req.params.id, (err,wine) => {
         if(err) res.send(err)
         res.redirect("/find-wine")
@@ -168,7 +180,8 @@ router.get("/:id/edit", authRequired, (req,res) => {
     Wine.findById(req.params.id, (err, wine) => {
         if(err) res.send(err)
         res.render("edit.ejs", {
-            wine: wine
+            wine: wine,
+            user:req.session.currentUser
         })
     })
 })

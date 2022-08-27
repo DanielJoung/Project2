@@ -1,33 +1,33 @@
 <%- include("./partials/header.ejs") %>
 <nav class="body">
-    <div class="columns is-centered">
-        <div class="column is-narrow">
+    <div class="columns is-centered" id="buttonBox">
+        <div class="column is-narrow" id="buttonMenu">
             <a href="/find-wine/findPrice25 " class="button is-info is-light">Less Than $25</a>
         </div>
-        <div class="column is-narrow">
+        <div class="column is-narrow" id="buttonMenu">
             <a href="/find-wine/findPrice50" class="button is-info is-light">Less Than $50</a>
         </div>
-        <div class="column is-narrow">
+        <div class="column is-narrow" id="buttonMenu">
             <a href="/find-wine/findPrice100" class="button is-info is-light">Less Than $100</a>
         </div>
-        <div class="column is-narrow">
+        <div class="column is-narrow" id="buttonMenu">
             <a href="/find-wine/findPriceMore100" class="button is-info is-light">More Than $100</a>
         </div>
     </div>
-    <div class="columns is-centered">
-        <div class="column is-narrow">
+    <div class="columns is-centered" id="buttonBox">
+        <div class="column is-narrow" id="buttonMenu">
             <a href="/find-wine/findColorRed" class="button is-danger">Red Wine</a>
         </div>
-        <div class="column is-narrow">
+        <div class="column is-narrow" id="buttonMenu">
             <a href="/find-wine/findColorWhite" class="button">White Wine</a>
         </div>
     </div>
 
     <div class="columns" id="scrollBar">
         <% for (let i in wines) { %>
-            <div class="column is-one-fifth" id="scrollMenu">
+            <div class="column is-one-fifth is-center" id="scrollMenu">
                 <a href="/find-wine/<%= wines[i].id %> " id="wineList">
-                    <figure class="image is-square">
+                    <figure class="image">
                         <img src="<%= wines[i].img %> " class="img">
                     </figure>
                     <p class="indexP"> <%= wines[i].wineName %> </p>

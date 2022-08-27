@@ -1,6 +1,6 @@
 <%- include("./partials/header.ejs") %> 
 <nav class="body">
-  <div class="box">
+  <div class="box" id="box">
       <article class="media">
         <div class="media-left">
           <figure class="image is-128x128">
@@ -25,23 +25,27 @@
     </div>
     
     <!-- edit delete button -->
-    <div class="columns">
-      <form action="/find-wine/<%= wine.id %>/edit">
-        <button class="button is-success">
-          <span class="icon is-small">
-            <i class="fas fa-check"></i>
-          </span>
-          <span>Edit</span>
-        </button>
-      </form>
-      <form action="/find-wine/<%= wine.id %>?_method=DELETE" method="POST">
-        <button class="button is-danger is-outlined">
-          <span>Delete</span>
-          <span class="icon is-small">
-            <i class="fas fa-times"></i>
-          </span>
-        </button>    
-      </form>
+    <div class="columns" id="buttonBox">
+      <div class="column is-narrow" id="buttonMenu">
+        <form action="/find-wine/<%= wine.id %>/edit">
+          <button class="button is-success">
+            <span class="icon is-small">
+              <i class="fas fa-check"></i>
+            </span>
+            <span>Edit</span>
+          </button>
+        </form>
+      </div>
+      <div class="column is-narrow" id="buttonMenu">
+        <form action="/find-wine/<%= wine.id %>?_method=DELETE" method="POST">
+          <button class="button is-danger is-outlined">
+            <span>Delete</span>
+            <span class="icon is-small">
+              <i class="fas fa-times"></i>
+            </span>
+          </button>    
+        </form>
+      </div>
     </div>
 </nav>
 

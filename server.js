@@ -9,6 +9,7 @@ const PORT = process.env.PORT
 const mongoURI = process.env.MONGODB_URI
 const SESSION_SECRET = process.env.SESSION_SECRET
 
+
 // Mongoose
 mongoose.connect(mongoURI);
 mongoose.connection.once('open', () => {
@@ -25,6 +26,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
 }))
+
 const wineController = require("./controllers/wineCtrl.js")
 app.use("/find-wine", wineController)
 const userController = require("./controllers/userCtrl.js")
@@ -32,8 +34,9 @@ app.use("/users", userController)
 
 // Default
 app.get("/", (req,res) => {
-    res.send("running")
+    res.render("home.ejs", {user: req.session.currentUser})
 })
+
 
 // listen
 app.listen(PORT, () => {

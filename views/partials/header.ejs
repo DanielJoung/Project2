@@ -14,12 +14,15 @@
         <div class="box">
             <a href="/find-wine" id="mainName"><p>Find Wine</p></a>
             <div class="signin">
-                <a href="/users/register">Register</a>
-                |
-                <a href="/users/signin">Sign In</a>
-                |
-                <a href="/find-wine/new">Add Wine</a>
-                |
+                <% if (user) { %>
+                    <p class="welcome">Welcome, <%= user.name %> </p>
+                    <a href="/users/signout" class="button">Sign Out</a>
+                    <a href="/find-wine/new" class="button">Add Wine</a>
+                <% } else {%>
+                    <a href="/users/register" class="button">Register</a>
+                    <a href="/users/signin" class="button">Sign In</a>
+                <% } %> 
+
 
             </div>
         </div>

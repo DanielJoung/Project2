@@ -1,11 +1,11 @@
 <%- include("../partials/header.ejs") %> 
-
+<h1 class="signinP">Sign In</h1>
 <nav class="body">
     <form action="/users/signin" method="POST">
         <div class="field">
-            <label class="label" for="userName">Username</label>
+            <label class="label" for="email">Email</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input is-success" type="text" placeholder="Text input" id="userName" name="userName">
+              <input class="input is-success" type="email" placeholder="email" id="email" name="email">
               <span class="icon is-small is-left">
                 <i class="fas fa-user"></i>
               </span>
@@ -32,11 +32,10 @@
               <input class="button is-link" type="submit" value="Sign In">
             </div>
             <div class="control">
-              <button class="button is-link is-light">Cancel</button>
+              <a class="button is-link is-light" href="/find-wine">Cancel</a>
             </div>
           </div>
     </form>
-
 </nav>
 
 <%- include("../partials/footer.ejs") %> 

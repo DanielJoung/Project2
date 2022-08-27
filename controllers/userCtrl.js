@@ -1,51 +1,51 @@
 const express = require('express');
 const bcrypt = require("bcrypt")
 const router = express.Router()
-const User = require('../models/users.js')
+const User = require('../models/users.js');
+
 
 router.get("/register", (req,res) => {
-    res.render("users/register.ejs")
+    res.render("users/register.ejs", {user:req.session.currentUser})
 })
 
 router.post("/register", (req,res) => {
     const salt = bcrypt.genSaltSync(10)
     req.body.password = bcrypt.hashSync(req.body.password, salt)
-    User.findOne({userName:req.body.userName}, (err,userExists) => {
+    User.findOne({email:req.body.email}, (err,userExists) => {
         if(userExists) {
-            res.send("that username is taken")
+            res.send("that email is taken")
         }else {
             User.create(req.body, (err,createUser) => {
-                req.session.createUser = createUser
-                res.redirect("/find-wine")
+                req.session.currentUser = createUser
+                res.redirect("/users/signin")
             })
         }
     })
 })
 
 router.get("/signin", (req,res) => {
-    res.render("users/signin.ejs")
+    res.render("users/signin.ejs", {user:req.session.currentUser})
 })
 
 router.post("/signin", (req,res) => {
-    User.findOne({userName:req.body.userName}, (err,foundUser) => {
-        if(foundUser) {
+    User.findOne({email: req.body.email}, (err,foundUser) => {
+        if (foundUser) {
             const validLogin = bcrypt.compareSync(req.body.password, foundUser.password)
-            if (validLogin) {
-                req.session.createUser = foundUser
+            if(validLogin) {
+                req.session.currentUser = foundUser
                 res.redirect("/find-wine")
-            } else {
-                res.send("Invalid username or password")
+            }else {
+                res.send("Invalid email of password")
             }
         }else {
-            res.send("Invalid username or password")
+            res.send("Invalid email or password")
         }
     })
 })
 
 router.get('/signout', (req, res) => {
-    // this destroy's the session
     req.session.destroy()
     res.redirect('/find-wine')
-  })
+})
 
 module.exports = router

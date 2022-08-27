@@ -1,11 +1,24 @@
 <%- include("../partials/header.ejs") %> 
-
+<h1 class="signinP">Register</h1>
 <nav class="body">
     <form action="/users/register" method="POST">
         <div class="field">
-            <label class="label" for="userName">Username</label>
+          <label class="label" for="name">Name</label>
+          <div class="control has-icons-left has-icons-right">
+            <input class="input is-success" type="text" placeholder="name" id="name" name="name">
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+            <label class="label" for="email">Email</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input is-success" type="text" placeholder="Text input" id="userName" name="userName">
+              <input class="input is-success" type="email" placeholder="email" id="email" name="email">
               <span class="icon is-small is-left">
                 <i class="fas fa-user"></i>
               </span>
@@ -38,16 +51,16 @@
             </div>
           </div>
           
-          
           <div class="field is-grouped">
             <div class="control">
               <input class="button is-link" type="submit" value="Submit">
             </div>
             <div class="control">
-              <button class="button is-link is-light">Cancel</button>
+              <a class="button is-link is-light" href="/find-wine">Cancel</a>
             </div>
           </div>
     </form>
+
     
 </nav>
 

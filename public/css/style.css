@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
 * {
     margin: 0;
 }
@@ -9,7 +12,29 @@
     text-align: right;
 }
 
+.signinP {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.welcome {
+    padding-bottom: 4px;
+    font-family: 'Rubik Bubbles', cursive;
+}
+
+#buttonBox {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+#buttonMenu {
+    display: inline-block;
+    white-space: nowrap;
+}
+
 #mainName {
+    font-family: 'Rubik Bubbles', cursive;
     text-align: center;
     color: black;
     font-size: 25px;
@@ -31,8 +56,28 @@
     overflow: hidden;
 }
 
+#box {
+    height: auto;
+}
 
+.homeP {
+    margin-top: 50%;
+}
+
+.homeP p{
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 30px;
+}
+
+.indexP {
+    font-family: 'Josefin Sans', sans-serif;
+}
 
 .img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     max-width: 200px;
+    max-height: 80px;
 }
