@@ -81,3 +81,18 @@
     max-width: 200px;
     max-height: 80px;
 }
+
+/* search bar */
+#searchResults {
+    max-width: 600px;
+    width: 95%;
+    margin: 20px auto 0 auto;
+}
+
+#search-box {
+    display: block;
+    margin: 0px auto 20px auto;
+    padding: 10px 20px;
+    max-width: 600px;
+    width: 85%;
+}

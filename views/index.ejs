@@ -1,5 +1,11 @@
 <%- include("./partials/header.ejs") %>
 <nav class="body">
+    <input type="text" id="search-box" onkeyup="sendData(this)" placeholder="search...">
+    <section id="searchResults">
+
+    </section>
+    <br>
+    <br>
     <div class="columns is-centered" id="buttonBox">
         <div class="column is-narrow" id="buttonMenu">
             <a href="/find-wine/findPrice25 " class="button is-info is-light">Less Than $25</a>
@@ -39,4 +45,36 @@
 
 </nav>
 
+<!-- https://www.youtube.com/watch?v=991fdnSllcw  -->
+<script>
+    function sendData(e) {
+        const searchResults = document.getElementById("searchResults")
+        let match = e.value.match(/^[a-zA-Z ]*/)
+        let match2 = e.value.match(/\s*/)
+        if (match2[0] === e.value) {
+            searchResults.innerHTML = "";
+            return
+        }
+        if (match[0] === e.value) {
+            fetch("getWines", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({payload: e.value})
+        }).then(res => res.json()).then(data => {
+            let payload = data.payload
+            searchResults.innerHTML = "";
+            if(payload.length < 1) {
+                searchResults.innerHTML = `<p>Sorry, Nothing Found. </p>`
+                return;
+            }
+            payload.forEach((item,index) => {
+                if(index > 0) searchResults.innerHTML += `<hr>`
+                searchResults.innerHTML += `<a href="/find-wine/${item._id}">${item.wineName}</a>`
+            });
+        })
+        return
+        }
+        searchResults.innerHTML = "";
+    } 
+</script>
 <%- include("./partials/footer.ejs") %> 

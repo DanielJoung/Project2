@@ -38,6 +38,15 @@ app.get("/", (req,res) => {
 })
 
 
+app.post("/getWines", async (req,res) => {
+    let payload = req.body.payload.trim()
+    let search = await Wine.find({wineName: {$regex: new RegExp("^"+payload+".*","i")}}).exec()
+    // Limit Search Results to 10
+    search = search.slice(0,10);
+    res.send({payload: search})
+
+})
+
 // listen
 app.listen(PORT, () => {
     console.log("This server is running: ",PORT)

@@ -96,9 +96,7 @@ router.get("/seed", (req,res) => {
 
 // new
 router.get("/new", (req,res) => {
-    res.render("new.ejs", {
-        user:req.session.currentUser
-    })
+    res.render("new.ejs")
 })
 
 // show price 
@@ -163,7 +161,7 @@ router.get("/:id", async(req,res) => {
 router.post("/", (req,res) => {
     Wine.create(req.body, (err,createWine) => {
         if(err) res.send(err)
-        res.redirect("/find-wine", {user:req.session.currentUser})
+        res.redirect("/find-wine")
     })
 })
 
@@ -185,6 +183,7 @@ router.get("/:id/edit", authRequired, (req,res) => {
         })
     })
 })
+
 
 // update
 router.put("/:id", (req,res) => {
