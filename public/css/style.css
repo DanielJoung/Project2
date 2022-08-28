@@ -4,6 +4,8 @@
 * {
     margin: 0;
 }
+
+
 .body {
     margin: 0 50px 0 50px;
 }
@@ -35,7 +37,6 @@
 
 #mainName {
     font-family: 'Rubik Bubbles', cursive;
-    text-align: center;
     color: black;
     font-size: 25px;
 }

@@ -12,10 +12,12 @@ router.post("/register", (req,res) => {
     const salt = bcrypt.genSaltSync(10)
     req.body.password = bcrypt.hashSync(req.body.password, salt)
     User.findOne({email:req.body.email}, (err,userExists) => {
+        console.log(req.body.email)
         if(userExists) {
             res.send("that email is taken")
         }else {
             User.create(req.body, (err,createUser) => {
+                console.log(req.body)
                 req.session.currentUser = createUser
                 res.redirect("/users/signin")
             })

@@ -10,21 +10,83 @@
     <title>Find Wine</title>
 </head>
 <body>
-    <header class="header">
-        <div class="box">
-            <a href="/find-wine" id="mainName"><p>Find Wine</p></a>
-            <div class="signin">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="/find-wine">
+            <p id="mainName">find-wine</p>
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+      
+            <a class="navbar-item">
+              Documentation
+            </a>
+      
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                More
+              </a>
+      
+              <div class="navbar-dropdown">
+                <a class="navbar-item">
+                  About
+                </a>
+                <a class="navbar-item">
+                  Wines
+                </a>
+                <a class="navbar-item">
+                  Contact
+                </a>
+                <hr class="navbar-divider">
+                <a class="navbar-item">
+                  Report an issue
+                </a>
+              </div>
+            </div>
+          </div>
+      
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
                 <% if (user) { %>
                     <p class="welcome">Welcome, <%= user.name %> </p>
                     <a href="/users/signout" class="button">Sign Out</a>
                     <a href="/find-wine/new" class="button">Add Wine</a>
                 <% } else {%>
                     <a href="/users/register" class="button">Register</a>
-                    <a href="/users/signin" class="button">Sign In</a>
+                    <a href="/users/signin" class="button is-actived" 
+                    target="popup">
+                        Sign In
+                    </a>
                 <% } %> 
-
-
+              </div>
             </div>
+          </div>
         </div>
-        <br>
+      </nav>
     </header>
+    <br>
+    <br>
+    <br>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            $navbarBurgers.forEach( el => {
+                el.addEventListener('click', () => {
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+                });
+            });
+        });
+    </script>
