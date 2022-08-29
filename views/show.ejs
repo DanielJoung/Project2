@@ -37,8 +37,8 @@
         </form>
       </div>
       <div class="column is-narrow" id="buttonMenu">
-        <form action="/find-wine/<%= wine.id %>?_method=DELETE" method="POST">
-          <button class="button is-danger is-outlined">
+        <form action="/find-wine/<%= wine.id %>?_method=DELETE" method="POST" id="EditForm">
+          <button class="button is-danger is-outlined" onclick="submitResult(event)">
             <span>Delete</span>
             <span class="icon is-small">
               <i class="fas fa-times"></i>
@@ -48,5 +48,25 @@
       </div>
     </div>
 </nav>
+
+<script>
+function submitResult(e) {
+    e.preventDefault();
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById("EditForm").submit();
+        }
+    })
+}
+
+</script>
 
 <%- include("./partials/footer.ejs") %> 
