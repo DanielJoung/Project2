@@ -22,7 +22,9 @@
 
 .welcome {
     padding-bottom: 4px;
+    padding-right: 10px;
     font-family: 'Rubik Bubbles', cursive;
+
 }
 
 #buttonBox {

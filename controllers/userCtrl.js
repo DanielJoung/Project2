@@ -17,8 +17,8 @@ router.post("/register", (req,res) => {
             res.send("that email is taken")
         }else {
             User.create(req.body, (err,createUser) => {
-                console.log(req.body)
-                req.session.currentUser = createUser
+                console.log(createUser)
+                // req.session.currentUser = createUser
                 res.redirect("/users/signin")
             })
         }
