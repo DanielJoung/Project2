@@ -1,9 +1,12 @@
 const express = require("express")
 const app = express()
 const Wine = require("./models/wines.js")
+const User = require("./models/users")
 const methodOverride = require("method-override")
 const session = require("express-session")
 const mongoose = require("mongoose")
+const passport = require("passport")
+const localStrategy = require("passport-local").Strategy
 require("dotenv").config()
 const PORT = process.env.PORT 
 const mongoURI = process.env.MONGODB_URI
@@ -26,6 +29,11 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
 }))
+
+// Passport.js
+app.use(passport.initialize())
+app.use(passport.session())
+
 
 const wineController = require("./controllers/wineCtrl.js")
 app.use("/find-wine", wineController)

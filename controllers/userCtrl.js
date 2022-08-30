@@ -1,33 +1,40 @@
-const express = require('express');
+const express = require('express')
 const bcrypt = require("bcrypt")
 const router = express.Router()
-const User = require('../models/users.js');
+const User = require('../models/users.js')
+const passport = require("passport")
+const localStrategy = require("passport-local").Strategy
 
 
 router.get("/register", (req,res) => {
-    res.render("users/register.ejs", {user:req.session.currentUser})
+    res.render("users/register.ejs", {
+        user:req.session.currentUser,
+        error: req.query.error
+    })
 })
 
 router.post("/register", (req,res) => {
     const salt = bcrypt.genSaltSync(10)
     req.body.password = bcrypt.hashSync(req.body.password, salt)
     User.findOne({email:req.body.email}, (err,userExists) => {
-        console.log(req.body.email)
         if(userExists) {
-            res.send("that email is taken")
+            res.redirect("/users/register?error=true")
         }else {
             User.create(req.body, (err,createUser) => {
-                console.log(createUser)
-                // req.session.currentUser = createUser
+                req.session.currentUser = createUser
                 res.redirect("/users/signin")
             })
         }
     })
 })
 
-router.get("/signin", (req,res) => {
-    res.render("users/signin.ejs", {user:req.session.currentUser})
+router.get("/signin",  (req,res) => {
+    res.render("users/signin.ejs", {
+        user:req.session.currentUser,
+        error:req.query.error
+    })
 })
+
 
 router.post("/signin", (req,res) => {
     User.findOne({email: req.body.email}, (err,foundUser) => {
@@ -37,10 +44,10 @@ router.post("/signin", (req,res) => {
                 req.session.currentUser = foundUser
                 res.redirect("/find-wine")
             }else {
-                res.send("Invalid email of password")
+                res.redirect("/users/signin?error=true")
             }
         }else {
-            res.send("Invalid email or password")
+            res.redirect("/users/signin?error=true")
         }
     })
 })

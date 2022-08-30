@@ -5,6 +5,14 @@
     margin: 0;
 }
 
+.err-msg {
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    color: red;
+    box-shadow: 0px 6px 12px rgba(0,0,0,0.2);
+    
+}
 
 .body {
     margin: 0 50px 0 50px;
@@ -61,6 +69,11 @@
 
 #box {
     height: auto;
+}
+
+#navHeader {
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 10px;
 }
 
 .homeP {

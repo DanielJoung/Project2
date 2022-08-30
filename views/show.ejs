@@ -1,5 +1,8 @@
 <%- include("./partials/header.ejs") %> 
 <nav class="body">
+  <% if (error) { %>
+    <p class="err-msg">Sign in first</p>
+  <% } %> 
   <div class="box" id="box">
       <article class="media">
         <div class="media-left">
@@ -50,6 +53,7 @@
 </nav>
 
 <script>
+// sweet alert 2
 function submitResult(e) {
     e.preventDefault();
     Swal.fire({

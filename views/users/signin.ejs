@@ -12,7 +12,11 @@
 <body>
 <h1 class="signinP">Sign In</h1>
 <nav class="body">
+  <% if (error) { %>
+    <p class="err-msg">Email or password is incorrect</p>
+  <% } %> 
     <form action="/users/signin" method="POST">
+
         <div class="field">
             <label class="label" for="email">Email</label>
             <div class="control has-icons-left has-icons-right">

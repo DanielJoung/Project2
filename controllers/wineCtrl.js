@@ -6,7 +6,15 @@ const authRequired = (req,res,next) => {
     if(req.session.currentUser) {
         next()
     }else {
-        res.send("You must be logged in first")
+        res.redirect(`/find-wine/${req.params.id}?error=true`)
+    }
+}
+
+const authRequiredCreate = (req,res,next) => {
+    if(req.session.currentUser) {
+        next()
+    }else {
+        res.redirect(`/find-wine`)
     }
 }
 
@@ -15,7 +23,8 @@ router.get("/", async (req,res) => {
     const wines = await Wine.find({})
     res.render("index.ejs", {
         wines,
-        user:req.session.currentUser
+        user:req.session.currentUser,
+        error: req.query.error
     })
 })
 
@@ -95,7 +104,7 @@ router.get("/seed", (req,res) => {
 })
 
 // new
-router.get("/new", (req,res) => {
+router.get("/new", authRequiredCreate,(req,res) => {
     res.render("new.ejs")
 })
 
@@ -152,7 +161,8 @@ router.get("/:id", async(req,res) => {
     const wine = await Wine.findById(req.params.id)
     res.render("show.ejs", {
         wine,
-        user:req.session.currentUser
+        user:req.session.currentUser,
+        error: req.query.error
     })
 })
 

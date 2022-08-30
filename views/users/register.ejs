@@ -1,6 +1,9 @@
 <%- include("../partials/header.ejs") %> 
 <h1 class="signinP">Register</h1>
 <nav class="body">
+  <% if (error) { %>
+    <p class="err-msg">Email is taken</p>
+  <% } %> 
     <form action="/users/register" method="POST">
         <div class="field">
           <label class="label" for="name">Name</label>
