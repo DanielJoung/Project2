@@ -104,6 +104,7 @@ router.get("/", async (req,res) => {
 // })
 
 // new
+
 router.get("/new", authRequiredCreate,(req,res) => {
     res.render("new.ejs")
 })
