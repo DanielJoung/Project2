@@ -5,17 +5,18 @@
     margin: 0;
 }
 
+
 .err-msg {
     padding: 10px 15px;
     border-radius: 8px;
     margin-bottom: 15px;
     color: red;
     box-shadow: 0px 6px 12px rgba(0,0,0,0.2);
-    
 }
 
 .body {
     margin: 0 50px 0 50px;
+    padding-top: 20px;
 }
 
 .signin {
@@ -32,7 +33,10 @@
     padding-bottom: 4px;
     padding-right: 10px;
     font-family: 'Rubik Bubbles', cursive;
+}
 
+.passMin {
+    font-size: 10px;
 }
 
 #buttonBox {
@@ -68,12 +72,13 @@
 }
 
 #box {
-    height: auto;
+    overflow:auto;
 }
 
 #navHeader {
     border-bottom: 1px solid lightgray;
     padding-bottom: 10px;
+    background-color: cornflowerblue;
 }
 
 .homeP {

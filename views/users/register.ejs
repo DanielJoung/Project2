@@ -32,9 +32,9 @@
           </div>
           
           <div class="field">
-            <label class="label" for="password">Password</label>
+            <label class="label" for="password">Password <span class="passMin">(5 characters minimum)</span></label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input is-danger" type="password" placeholder="Password" id="password" name="password">
+              <input class="input is-danger" type="password" placeholder="Password" id="password" name="password" minlength="5">
               <span class="icon is-small is-left">
                 <i class="fas fa-lock"></i>
               </span>
@@ -66,5 +66,9 @@
 
     
 </nav>
+<script>
+  const p = document.querySelector(".err-msg")
+setTimeout(()=> {p.remove()},1500)
+</script>
 
 <%- include("../partials/footer.ejs") %> 

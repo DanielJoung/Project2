@@ -13,11 +13,13 @@
                 <div class="content">
                     <p>
                         <strong><%=wine[i].wineName%> </strong> <small><%=wine[i].years%>       </small>
-                        <span class="showPrice">$<%= wine[i].price %>  </span>
                         <br>
                     </p>
                     <p>
                         <strong>Color :</strong>  <%= wine[i].color %> 
+                        <br>
+                        <br>
+                        <strong>Price:</strong> $<%= wine[i].price %>
                     </p>
                     <p><strong>Wine Note</strong></p>
                     <%= wine[i].desc %> 
@@ -41,7 +43,10 @@
                         <br>
                     </p>
                     <p>
-                        <strong>Color :</strong>  <%= wine[i].color %> 
+                        <strong>Color :</strong>  <%= wine[i].color %>
+                        <br>
+                        <br>
+                        <strong>Price:</strong> $<%= wine[i].price %> 
                     </p>
                     <p><strong>Wine Note</strong></p>
                     <%= wine[i].desc %> 

@@ -3,6 +3,7 @@
   <% if (error) { %>
     <p class="err-msg">Sign in first</p>
   <% } %> 
+
   <div class="box" id="box">
       <article class="media">
         <div class="media-left">
@@ -14,11 +15,14 @@
           <div class="content">
             <p>
               <strong><%=wine.wineName%> </strong> <small><%=wine.years%>       </small>
-              <span class="showPrice">$<%= wine.price %>  </span>
+
               <br>
             </p>
             <p>
-             <strong>Color :</strong>  <%= wine.color %> 
+             <strong>Color :</strong>  <%= wine.color %>
+             <br>
+             <br>
+             <strong>Price:</strong> $<%= wine.price %>
             </p>
             <p><strong>Wine Note</strong></p>
             <%= wine.desc %> 
@@ -70,6 +74,8 @@ function submitResult(e) {
         }
     })
 }
+const p = document.querySelector(".err-msg")
+setTimeout(()=> {p.remove()},1500)
 
 </script>
 
