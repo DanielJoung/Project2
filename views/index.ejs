@@ -38,7 +38,7 @@
             <div class="column is-one-fifth is-center" id="scrollMenu">
                 <a href="/find-wine/<%= wines[i].id %> " id="wineList">
                     <figure class="image">
-                        <img src="<%= wines[i].img %> " class="img">
+                        <img src="<%= wines[i].img %> " class="img" onerror="this.onerror=null; this.src='https:cdn.pixabay.com/photo/2016/07/26/16/16/wine-1543170_1280.jpg'">
                     </figure>
                     <p class="indexP"> <%= wines[i].wineName %> </p>
                     <p class="indexP"> $<%= wines[i].price %> </p>
