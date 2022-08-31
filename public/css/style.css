@@ -81,6 +81,10 @@
     background-color: cornflowerblue;
 }
 
+#closeButton {
+    margin-left: 45%;
+}
+
 .homeP {
     margin-top: 30%;
 }

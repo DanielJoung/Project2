@@ -22,7 +22,7 @@ router.post("/register", (req,res) => {
         }else {
             User.create(req.body, (err,createUser) => {
                 req.session.currentUser = createUser
-                res.redirect("/users/signin")
+                res.redirect("/find-wine")
             })
         }
     })
@@ -35,6 +35,12 @@ router.get("/signin",  (req,res) => {
     })
 })
 
+router.get("/success", (req,res) => {
+    res.render("users/success.ejs", {
+        user:req.session.currentUser,
+        error:req.query.error
+    })
+})
 
 router.post("/signin", (req,res) => {
     User.findOne({email: req.body.email}, (err,foundUser) => {
@@ -42,7 +48,7 @@ router.post("/signin", (req,res) => {
             const validLogin = bcrypt.compareSync(req.body.password, foundUser.password)
             if(validLogin) {
                 req.session.currentUser = foundUser
-                res.redirect("/find-wine")
+                res.redirect("/users/success")
             }else {
                 res.redirect("/users/signin?error=true")
             }
@@ -51,6 +57,7 @@ router.post("/signin", (req,res) => {
         }
     })
 })
+
 
 router.get('/signout', (req, res) => {
     req.session.destroy()

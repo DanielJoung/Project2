@@ -64,8 +64,9 @@
                     <a href="/find-wine/new" class="button">Add Wine</a>
                 <% } else {%>
                     <a href="/users/register" class="button">Register</a>
-                    <a href="/users/signin" class="button">
-                        Sign In
+                    <a href="/users/signin" class="button is-actived" 
+                     onclick="window.open('/users/signin','popup','width=600,height=600'); return false;">Sign In</a>
+
                     </a>
                 <% } %> 
               </div>
@@ -74,6 +75,7 @@
         </div>
       </nav>
     </header>
+    <br>
 
 
     <script>
@@ -88,4 +90,7 @@
               });
           });
       });
+
+
+
     </script>

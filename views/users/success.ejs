@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find-Wine</title>
+</head>
+<body>
+    
+</body>
+</html>
+<nav class="homeBody">
+    <div class="homeP">
+        <p class="signinP">Logged in</p>
+        <a href="/find-wine" onclick="window.close()" class="button is-danger" id="closeButton">Close</a>
+    </div>
+</nav>
+
+
+<script>
+    setTimeout(function() {
+        opener.location.reload();
+    }, 1000);
+</script>
+<%- include("../partials/footer.ejs") %> 
