@@ -2,8 +2,6 @@ const express = require('express')
 const bcrypt = require("bcrypt")
 const router = express.Router()
 const User = require('../models/users.js')
-const passport = require("passport")
-const localStrategy = require("passport-local").Strategy
 
 
 router.get("/register", (req,res) => {
